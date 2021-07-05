@@ -1,0 +1,84 @@
+# Migration configuration for importing Open Active activities.
+id: localgov_vocab_openactive_activity
+label: openactive_activity
+migration_tags:
+  - openactive
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  urls: 'https://openactive.io/activity-list/activity-list.jsonld'
+  item_selector: concept/
+  fields:
+    -
+      name: id
+      label: ID
+      selector: identifier
+    -
+      name: label
+      label: Label
+      selector: prefLabel
+    -
+      name: uri
+      label: URI
+      selector: id
+    -
+      name: definition
+      label: Definition
+      selector: definition
+    -
+      name: parents
+      label: Parents
+      selector: broader/
+    -
+      name: children
+      label: Children
+      selector: narrower/
+    -
+      name: modified
+      label: Modified
+      selector: Modified
+    -
+      name: parent
+      label: 'Parent ID'
+      selector: ancestor::Need/Identifier
+    -
+      name: is_top
+      label: 'Is a top level concept'
+      selector: topConceptOf
+    -
+      name: machine_name
+      label: 'Machine name'
+      selector: notation
+  ids:
+    uri:
+      type: string
+      max_length: 512
+process:
+  name: label
+  uid:
+    plugin: default_value
+    default_value: 1
+  description/value: definition
+  description/format:
+    plugin: default_value
+    default_value: 'plain_text'
+  localgov_vocab_external_id: id
+  localgov_vocab_external_uri: uri
+  # does it do multiple inheritance, do we want to if so?
+  parent_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parents
+    -
+      plugin: migration_lookup
+      source: parents/0
+      migration: localgov_vocab_openactive_activity
+  parent:
+    plugin: default_value
+    default_value: 0
+    source: '@parent_id'
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: openactiveactivity

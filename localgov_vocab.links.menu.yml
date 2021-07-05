@@ -1,0 +1,6 @@
+localgov_vocab.settings_form:
+  title: External vocabularies
+  description: Enable, import, update external vocabularies.
+  parent: entity.taxonomy_vocabulary.collection
+  route_name: localgov_vocab.settings_form
+  weight: 10

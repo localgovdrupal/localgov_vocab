@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'LGA: Service Type'
+vid: esdservicetype
+description: 'The LGA Services List.  http://id.esd.org.uk/service/'
+weight: 0

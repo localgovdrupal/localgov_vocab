@@ -1,0 +1,7 @@
+localgov_vocab.settings_form:
+  path: '/admin/structure/taxonomy/localgov-vocab'
+  defaults:
+    _title: 'External vocabularies'
+    _form: 'Drupal\localgov_vocab\Form\SettingsForm'
+  requirements:
+    _permission: 'Administer vocabularies and terms'

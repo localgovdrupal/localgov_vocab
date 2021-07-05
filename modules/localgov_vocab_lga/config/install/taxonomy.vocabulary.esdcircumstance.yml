@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'LGA: Circumstances'
+vid: esdcircumstance
+description: 'The LGA’s Circumstances List. http://id.esd.org.uk/circumstance'
+weight: 0

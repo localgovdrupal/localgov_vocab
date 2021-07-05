@@ -1,0 +1,8 @@
+name: LGA vocabularies
+type: module
+description: Import LGA&#039;s lists from esd.org.uk into vocabularies.
+package: LocalGov Drupal
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - migrate_plus:migrate_plus

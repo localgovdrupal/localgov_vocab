@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.localgov_vocab_external_uri
+    - taxonomy.vocabulary.esdservicetype
+id: taxonomy_term.esdservicetype.localgov_vocab_external_uri
+field_name: localgov_vocab_external_uri
+entity_type: taxonomy_term
+bundle: esdservicetype
+label: 'External URI'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

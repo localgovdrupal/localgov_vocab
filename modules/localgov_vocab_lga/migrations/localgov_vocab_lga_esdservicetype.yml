@@ -1,0 +1,55 @@
+# Migration configuration for LGA Service Type terms.
+id: localgov_vocab_lga_esdservicetype
+label: esdServiceType
+migration_tags:
+  - Tag1
+  - Tag2
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: simple_xml
+  urls: 'https://standards.esd.org.uk/xml?uri=list/services'
+  item_selector: /Services/Service
+  fields:
+    -
+      name: id
+      label: ID
+      selector: Identifier
+    -
+      name: label
+      label: Label
+      selector: Label
+    -
+      name: uri
+      label: URI
+      selector: URI
+    -
+      name: description
+      label: Description
+      selector: Description
+    -
+      name: created
+      label: Created
+      selector: Created
+    -
+      name: modified
+      label: Modified
+      selector: Modified
+  ids:
+    id:
+      type: string
+      max_length: 512
+process:
+  name: label
+  description/value: description
+  description/format:
+    plugin: default_value
+    default_value: 'plain_text'
+  uid:
+    plugin: default_value
+    default_value: 1
+  localgov_vocab_external_id: id
+  localgov_vocab_external_uri: uri
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: esdservicetype
