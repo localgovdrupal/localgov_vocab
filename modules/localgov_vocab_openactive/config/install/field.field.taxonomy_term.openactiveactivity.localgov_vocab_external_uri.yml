@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.localgov_vocab_external_uri
+    - taxonomy.vocabulary.openactiveactivity
+id: taxonomy_term.openactiveactivity.localgov_vocab_external_uri
+field_name: localgov_vocab_external_uri
+entity_type: taxonomy_term
+bundle: openactiveactivity
+label: 'External URI'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
