@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_openreferral
+id: taxonomy_term.esdservicetype
+entity_type: taxonomy_term
+bundle: esdservicetype
+public_type: taxonomy
+public_datatype: esdServiceType
+property_mappings:
+  default:
+    -
+      field_name: name
+      public_name: name
+    -
+      field_name: localgov_vocab_external_id
+      public_name: id
+    -
+      field_name: 'parent:localgov_vocab_external_id'
+      public_name: parent_id

@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_openreferral
+id: taxonomy_term.openactiveactivity
+entity_type: taxonomy_term
+bundle: openactiveactivity
+public_type: taxonomy
+public_datatype: openActiveActivity
+property_mappings:
+  default:
+    -
+      field_name: name
+      public_name: name
+    -
+      field_name: localgov_vocab_external_id
+      public_name: id
+    -
+      field_name: 'parent:localgov_vocab_external_id'
+      public_name: parent_id
